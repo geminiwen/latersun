@@ -1,7 +1,12 @@
-var staticfile = require('./staticFile');
+var staticfile	= require('./staticFile');
+var welcomefile	= require('./config').WelcomeFile;
+var DEBUG		= require('./config').DEBUG;
 function route(pathname,handle,request,response)
 {
-	console.log(pathname);
+	if ( pathname.slice(-1) == "/") 
+	{
+		pathname += welcomefile;
+	}
 	if( typeof handle[pathname] == 'function' )
 	{
 		handle[pathname](request,response);	

@@ -3,11 +3,11 @@ var fs			= require('fs');
 var zlib		= require("zlib");
 var mimes		= require('./mime').types;
 var config		= require("./config");
-
+var DEBUG		= config.DEBUG;
 var get = function (pathname,request,response)
 {
 	var realPath = "assets" + pathname;
-	console.log('access for ' + realPath);
+	DEBUG('access for ' + realPath);
 	path.exists(realPath,function(exists)
 	{
 		if(!exists)
@@ -23,7 +23,7 @@ var get = function (pathname,request,response)
 			{
 				if(err)
 				{
-					response.writeHead(500,{'Content-Type':'text-plain'});
+					response.writeHead(500,{'Content-Type':'text/plain'});
 					response.end(err);
 				}
 				else
@@ -48,9 +48,9 @@ var get = function (pathname,request,response)
 							response.setHeader("Cache-Control", "max-age=" + config.Expires.maxAge);
 						}
 						response.setHeader("Content-Type",mimes[ext]);
+
+						//将文件进行压缩
 						var raw = fs.createReadStream(realPath);
-						
-						//raw.pipe(zlib.createGzip()).pipe(process.stdout);
 						var acceptEncoding = request.headers['accept-encoding'] || "";
 						var matched = ext.match(config.Compress.match);
 						if (matched && acceptEncoding.match(/\bgzip\b/)) {
@@ -68,7 +68,7 @@ var get = function (pathname,request,response)
 							response.writeHead(200);
 							raw.pipe(response);
 						}
-						response.end();
+
 					});
 				}
 			});
