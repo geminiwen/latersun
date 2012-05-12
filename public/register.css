@@ -1,0 +1,113 @@
+@charset "utf-8";
+/* CSS Document */
+
+.whole
+{width:980px;
+margin:auto;
+}
+.head1
+{
+	width:980px;
+	height:620px;
+	float:left;
+	display:inline;
+	background-image:url(Images/zhuce/di.PNG);
+	
+}
+.head2
+{
+	width:300px;
+	height:300px;
+	margin-top:180px;
+	margin-left:70px;
+	
+}
+.shuru
+{
+	width:284px;
+	height:30px;
+	
+}
+.shuru1
+{
+	width:384px;
+	height:30px;
+	
+}
+.shuru2
+{
+	width:212px;
+	height:30px;
+	float:left;
+	display:inline;
+	margin-left:0px;
+	margin-top:0px;
+	
+}
+.shuru3
+{
+	width:312px;
+	height:20px;
+	float:left;
+	display:inline;
+	margin-left:90px;
+	margin-top:-30px;
+	
+}
+.shuruzi
+{
+	width:212px;
+	height:30px;
+	float:left;
+	display:inline;
+	margin-left:70px;
+	margin-top:-30px;
+	
+}
+.you
+{
+	width:500px;
+	height:430px;
+	margin-left:470px;
+	margin-top:-370px;
+	
+}
+.zhuce
+{
+	width:381px;
+	height:43px;
+	margin-left:90px;
+	margin-top:0px;
+
+	
+}
+.zhuce1
+{
+	width:46px;
+	height:30px;
+	margin-left:405px;
+	margin-top:-42px;
+
+	
+}
+.zhuce2
+{
+	width:531px;
+	height:349px;
+	margin-left:-80px;
+	margin-top:28px;
+
+	
+}
+.weizhi
+{
+	width:150px;
+	height:29px;
+	margin-left:-25px;
+	margin-top:-540px;
+	color: #36F;
+	
+}
+.aa {
+	color: #000;
+}
