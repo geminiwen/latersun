@@ -57,6 +57,19 @@ exports.User = sequelize.define('userinfo',{
 				notNull	: false
 				}
 			},
+	'email'		: {
+			type		: Sequelize.STRING,
+			validate	: {
+				len		: 50,
+				notNull : false
+				},
+			},
+	'address'	: {
+			type		: Sequelize.STRING,
+			validate	: {
+				notNull	: false
+				},
+			},
 	'registertime' : {
 			type		: Sequelize.STRING,
 			validate	: {

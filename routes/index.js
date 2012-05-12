@@ -81,3 +81,43 @@ exports.register = function(req,res)
 	action.init(user);
 	
 }
+
+exports.login = function (req,res)
+{
+	var netaction = req.params.action;
+	if( null == netaction )
+	{
+		res.render('login.html');
+		return;
+	}
+	var action = {
+		init : function ( user )
+			{
+				User
+					.find( { where : { 'username': user.username, 'password' : user.password } } )
+					.success( this.login )
+					.error( this.error );
+			},
+		login : function ( user )
+			{
+				if( null != user )
+				{
+					req.session['loginuser'] = user;
+					res.json({ 'success': true });
+				}
+				else
+				{
+					res.json({ 'success': false,  'reason':'用户名或密码错误' });
+				}
+			},
+		error : function ( err )
+			{
+				res.json({ 'success': false, 'reason':'数据库访问错误'	} );
+			}
+		};
+	var user = {
+		'username' : req.body['username'],
+		'password' : req.body['password']
+		};
+	action.init(user);
+}

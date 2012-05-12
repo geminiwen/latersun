@@ -41,7 +41,7 @@ app.configure('production', function(){
 // Routes
 app.get('/', routes.index);
 app.all('/register/:action?', routes.register);
-
+app.all('/login/:action?',routes.login);
 app.listen(3000, function(){
 
 	console.log(routes.index);
